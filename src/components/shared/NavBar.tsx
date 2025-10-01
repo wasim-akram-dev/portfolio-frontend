@@ -66,8 +66,8 @@ export default function Navbar() {
                   prefetch={true}
                   className={`transition-colors text-xl font-semibold ${
                     pathname === link.href
-                      ? "text-emerald-600 dark:text-emerald-400"
-                      : "text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400"
+                      ? "text-amber-600 dark:text-amber-600"
+                      : "text-slate-700 dark:text-slate-200 hover:text-amber-600 dark:hover:text-amber-600"
                   }`}
                 >
                   {link.label}
@@ -84,21 +84,21 @@ export default function Navbar() {
                 {pathname !== "/" && (
                   <div className="flex gap-4 ">
                     <Link
-                      className="text-md group h-10 w-10 rounded-full border flex items-center justify-center border-emerald-600 text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-950"
+                      className="text-md group h-10 w-10 rounded-full border flex items-center justify-center border-amber-600 text-amber-600 hover:bg-amber-50 dark:hover:bg-amber-950"
                       href="https://github.com/wasim-akram-dev"
                       target="_blank"
                     >
                       <Github className="h-6 w-6 " />
                     </Link>
                     <Link
-                      className="text-md group h-10 w-10 rounded-full border flex items-center justify-center border-emerald-600 text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-950"
+                      className="text-md group h-10 w-10 rounded-full border flex items-center justify-center border-amber-600 text-amber-600 hover:bg-amber-50 dark:hover:bg-amber-950"
                       href="https://www.linkedin.com/in/wasim-akram-mern"
                       target="_blank"
                     >
                       <Linkedin className="h-6 w-6 " />
                     </Link>
                     <Link
-                      className="text-md group h-10 w-10 rounded-full border flex items-center justify-center border-emerald-600 text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-950"
+                      className="text-md group h-10 w-10 rounded-full border flex items-center justify-center border-amber-600 text-amber-600 hover:bg-amber-50 dark:hover:bg-amber-950"
                       href="mailto:wasimakram.codes@gmail.com"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -156,21 +156,21 @@ export default function Navbar() {
                   {pathname !== "/" && (
                     <div className="flex gap-4 ">
                       <Link
-                        className="text-md group h-10 w-10 rounded-full border flex items-center justify-center border-emerald-600 text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-950"
+                        className="text-md group h-10 w-10 rounded-full border flex items-center justify-center border-amber-600 text-amber-600 hover:bg-amber-50 dark:hover:bg-amber-950"
                         href="https://github.com/wasim-akram-dev"
                         target="_blank"
                       >
                         <Github className="h-6 w-6 " />
                       </Link>
                       <Link
-                        className="text-md group h-10 w-10 rounded-full border flex items-center justify-center border-emerald-600 text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-950"
+                        className="text-md group h-10 w-10 rounded-full border flex items-center justify-center border-amber-600 text-amber-600 hover:bg-amber-50 dark:hover:bg-amber-950"
                         href="https://www.linkedin.com/in/wasim-akram-mern"
                         target="_blank"
                       >
                         <Linkedin className="h-6 w-6 " />
                       </Link>
                       <Link
-                        className="text-md group h-10 w-10 rounded-full border flex items-center justify-center border-emerald-600 text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-950"
+                        className="text-md group h-10 w-10 rounded-full border flex items-center justify-center border-amber-600 text-amber-600 hover:bg-amber-50 dark:hover:bg-amber-950"
                         href="mailto:wasimakram.codes@gmail.com"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -212,7 +212,7 @@ export default function Navbar() {
                 href={link.href}
                 className={`px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-800 ${
                   pathname === link.href
-                    ? "text-emerald-600 dark:text-emerald-400 bg-slate-50 dark:bg-slate-800/50"
+                    ? "text-amber-600 dark:text-amber-600 bg-slate-50 dark:bg-slate-800/50"
                     : "text-slate-700 dark:text-slate-200"
                 }`}
                 onClick={closeMenu}
