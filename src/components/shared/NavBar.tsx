@@ -58,13 +58,20 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           {!isMobile && (
             <nav className="hidden md:flex items-center space-x-6">
+              {/* Logo */}
+              <Link
+                href="/"
+                className="text-xl font-thin text-amber-600 dark:text-white"
+              >
+                <span className="">{`<Wasim_Akram/>`}</span>
+              </Link>
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   //prefetch the page
                   prefetch={true}
-                  className={`transition-colors text-xl font-semibold ${
+                  className={`transition-colors text-xl ${
                     pathname === link.href
                       ? "text-amber-600 dark:text-amber-600"
                       : "text-slate-700 dark:text-slate-200 hover:text-amber-600 dark:hover:text-amber-600"

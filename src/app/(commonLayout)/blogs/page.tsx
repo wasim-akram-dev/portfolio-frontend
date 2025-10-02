@@ -1,4 +1,3 @@
-import mongoDbImage from "@/assets/mongodb.png";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -7,22 +6,10 @@ import {
   CardFooter,
   CardTitle,
 } from "@/components/ui/card";
+import { IBlog } from "@/types";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-
-export const allBlogs = [
-  {
-    id: 3,
-    title: "A Beginner's Handbook to MongoDB Aggregation Pipeline",
-    description:
-      "Understand the MongoDB aggregation pipeline with this comprehensive guide.",
-    slug: "a-beginners-handbook-to-mongodb-aggregation-pipeline",
-    image: mongoDbImage,
-    fullBlog: "mongodbPipeline.blog.md",
-    publishDate: "2025-10-01",
-  },
-];
 
 export const metadata: Metadata = {
   title: "Blogs - Wasim Akram",
@@ -30,7 +17,12 @@ export const metadata: Metadata = {
     "Read my latest blog posts about web development, linux, and more.",
 };
 
-export default function Blogs() {
+export default async function Blogs() {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/blogs`, {
+    cache: "no-store",
+  });
+  const data = await res.json();
+  const blogs = await data.blogs;
   return (
     <section id="blogs" className="py-20">
       <div className="container px-4 mx-auto">
@@ -44,12 +36,12 @@ export default function Blogs() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {allBlogs.map((blog) => (
+          {blogs.map((blog: IBlog) => (
             <Card key={blog.slug} className="z-10 flex flex-col h-full pt-0">
-              {blog.image && (
+              {blog.coverUrl && (
                 <div className="relative aspect-video w-full overflow-hidden rounded-t-lg">
                   <Image
-                    src={blog.image}
+                    src={blog.coverUrl}
                     alt={blog.title}
                     fill
                     className="object-cover"
@@ -58,7 +50,7 @@ export default function Blogs() {
               )}
               <CardContent className="space-y-2 pt-4 flex-1">
                 <CardTitle>{blog.title}</CardTitle>
-                <CardDescription>{blog.description}</CardDescription>
+                <CardDescription>{blog.content}</CardDescription>
               </CardContent>
               <CardFooter className="items-end flex w-full justify-end">
                 <Button variant={"outline"} asChild>
