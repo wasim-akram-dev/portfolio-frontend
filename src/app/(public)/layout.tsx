@@ -11,7 +11,7 @@ export default function CommonLayout({
     <div>
       <ThemeProvider>
         <Navbar />
-        <div className="bg-white relative dark:text-white min-h-screen h-full w-full dark:bg-[#010313] transition-colors duration-500">
+        <div className="bg-white relative dark:text-white min-h-screen h-full w-full dark:bg-gray-950 transition-colors duration-500">
           {children}
           <Background />
         </div>
