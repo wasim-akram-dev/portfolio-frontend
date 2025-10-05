@@ -14,17 +14,24 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
-import { BlogFormValues } from "@/lib/validations/blog";
-import { IBlog } from "@/types";
-import { BlogFormModal } from "./BlogFormModal";
+// import { BlogFormValues } from "@/lib/validations/blog";
+import { ProjectFormValues } from "@/lib/validations/project";
+import { IProject } from "@/types";
+import { ProjectFormModal } from "./ProjectFormModal";
+// import { BlogFormModal } from "./BlogFormModal";
 
-const ActionsButton = ({ id, blog }: { id: number; blog: IBlog }) => {
-  // { blog }: { blog: BlogFormValues & { id: number } }
-  const blogId = String(id);
+const ProjectActionsButton = ({
+  id,
+  project,
+}: {
+  id: number;
+  project: IProject;
+}) => {
+  const projectId = String(id);
 
-  const handleDelete = async (blogId: string) => {
+  const handleDelete = async (projectId: string) => {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_API}/blogs/${blogId}`,
+      `${process.env.NEXT_PUBLIC_BASE_API}/projects/${projectId}`,
       {
         method: "DELETE",
         credentials: "include",
@@ -32,18 +39,18 @@ const ActionsButton = ({ id, blog }: { id: number; blog: IBlog }) => {
     );
     const result = await res.json();
 
-    if (result?.deletedBlog?.id) {
-      toast.success("Blog Deleted Successfully");
+    if (result?.deletedProject?.id) {
+      toast.success("Project Deleted Successfully");
     }
   };
 
   const [open, setOpen] = useState(false);
 
-  const handleSave = async (data: BlogFormValues) => {
-    console.log("Blog Submitted:", data);
+  const handleSave = async (data: ProjectFormValues) => {
+    console.log("Project Submitted:", data);
 
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_API}/blogs/${blogId}`,
+      `${process.env.NEXT_PUBLIC_BASE_API}/projects/${projectId}`,
       {
         method: "PATCH",
         headers: {
@@ -56,8 +63,8 @@ const ActionsButton = ({ id, blog }: { id: number; blog: IBlog }) => {
 
     const result = await res.json();
     console.log(result);
-    // if (result?.updatedBlog?.id) {
-    //   toast.success("Blog Updated Successfully");
+    // if (result?.updatedProject?.id) {
+    //   toast.success("Project Updated Successfully");
     // }
   };
 
@@ -66,22 +73,19 @@ const ActionsButton = ({ id, blog }: { id: number; blog: IBlog }) => {
       <Button size="sm" variant="outline" onClick={() => setOpen(true)}>
         Edit
       </Button>
-      {/* <BlogFormModal
-        open={open}
-        onClose={() => setOpen(false)}
-        onSubmit={handleSave}
-      /> */}
-      <BlogFormModal
+
+      <ProjectFormModal
         open={open}
         onClose={() => setOpen(false)}
         onSubmit={handleSave}
         defaultValues={{
-          title: blog.title,
-          slug: blog.slug,
-          excerpt: blog.excerpt,
-          content: blog.content,
-          published: blog.published,
-          coverUrl: blog.coverUrl,
+          title: project.title,
+          slug: project.slug,
+          description: project.description,
+          features: project.features,
+          thumbnail: project.thumbnail,
+          liveUrl: project.liveUrl,
+          repoUrl: project.repoUrl,
         }}
       />
 
@@ -96,12 +100,12 @@ const ActionsButton = ({ id, blog }: { id: number; blog: IBlog }) => {
             <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
             <AlertDialogDescription>
               This action cannot be undone. This will permanently delete your
-              blogs and remove your data from the servers.
+              project and remove your data from the servers.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction onClick={() => handleDelete(blogId)}>
+            <AlertDialogAction onClick={() => handleDelete(projectId)}>
               Continue
             </AlertDialogAction>
           </AlertDialogFooter>
@@ -111,4 +115,4 @@ const ActionsButton = ({ id, blog }: { id: number; blog: IBlog }) => {
   );
 };
 
-export default ActionsButton;
+export default ProjectActionsButton;

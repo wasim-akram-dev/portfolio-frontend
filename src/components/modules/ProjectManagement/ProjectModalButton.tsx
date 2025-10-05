@@ -1,17 +1,17 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { BlogFormValues } from "@/lib/validations/blog";
+import { ProjectFormValues } from "@/lib/validations/project";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { BlogFormModal } from "./BlogFormModal";
+import { ProjectFormModal } from "./ProjectFormModal";
 
-const ModalButton = () => {
+const ProjectModalButton = () => {
   const [open, setOpen] = useState(false);
 
-  const handleSave = async (data: BlogFormValues) => {
-    console.log("Blog Submitted:", data);
+  const handleSave = async (data: ProjectFormValues) => {
+    console.log("Project Submitted:", data);
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/blogs`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/projects`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -22,15 +22,15 @@ const ModalButton = () => {
 
     const result = await res.json();
     console.log(result);
-    if (result?.blog?.id) {
-      toast.success("Blog Created Successfully");
+    if (result?.project?.id) {
+      toast.success("Project Created Successfully");
     }
   };
 
   return (
     <>
-      <Button onClick={() => setOpen(true)}>+ New Blog</Button>
-      <BlogFormModal
+      <Button onClick={() => setOpen(true)}>+ New Project</Button>
+      <ProjectFormModal
         open={open}
         onClose={() => setOpen(false)}
         onSubmit={handleSave}
@@ -39,4 +39,4 @@ const ModalButton = () => {
   );
 };
 
-export default ModalButton;
+export default ProjectModalButton;

@@ -4,10 +4,12 @@ import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
+import { useAuth } from "@/context/AuthContext";
 import { useMobile } from "@/hooks/useMobile";
 import Link from "next/link";
 
 export default function Navbar() {
+  const { user, logout } = useAuth();
   const { resolvedTheme, setTheme } = useTheme(); // Use resolvedTheme for accurate theme state
   const isMobile = useMobile();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -80,6 +82,21 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
+              <div>
+                {user ? (
+                  <div className="flex gap-3 items-center">
+                    <Link href="/dashboard">Dashboard</Link>
+                    <button
+                      onClick={logout}
+                      className="bg-red-600 px-3 py-1 rounded"
+                    >
+                      Logout
+                    </button>
+                  </div>
+                ) : (
+                  <Link href="/login">Login</Link>
+                )}
+              </div>
             </nav>
           )}
 
