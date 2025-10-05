@@ -1,7 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Home, LogOut, PlusCircle } from "lucide-react";
+import { Home, PlusCircle } from "lucide-react";
 import Link from "next/link";
 
 export default function Sidebar() {
@@ -35,7 +34,7 @@ export default function Sidebar() {
       </nav>
 
       {/* Bottom action */}
-      <div className="p-4 border-t border-gray-500">
+      {/* <div className="p-4 border-t border-gray-500">
         <Button
           variant="destructive"
           className="w-full justify-start gap-2 cursor-pointer"
@@ -43,7 +42,7 @@ export default function Sidebar() {
           <LogOut className="h-4 w-4" />
           Logout
         </Button>
-      </div>
+      </div> */}
     </aside>
   );
 }

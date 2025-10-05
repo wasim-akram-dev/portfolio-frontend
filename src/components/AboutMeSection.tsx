@@ -40,32 +40,52 @@ function AboutMeSection() {
 
             <div className="space-y-5 text-justify text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
               <p>
-                A passionate{" "}
+                a Junior{" "}
                 <span className="font-medium text-amber-600 dark:text-amber-600">
-                  Fullstack Developer
+                  MERN Stack Developer
                 </span>{" "}
-                with a deep love for crafting beautiful and performant{" "}
-                <span className="font-medium text-amber-600 dark:text-amber-600">
-                  Frontend experiences
+                from Dhaka, Bangladesh. My official documents list me as{" "}
+                <span className="text-amber-600 dark:text-amber-600">
+                  Md Jashim
                 </span>
-                . While I navigate the entire MERN stack, my focus sharpens on
-                the user-facing side of web applications.
+                , but I proudly use{" "}
+                <span className="text-amber-600 dark:text-amber-600 italic">
+                  Wasim Akram
+                </span>{" "}
+                in my professional identity.
               </p>
               <p>
-                My goal is to transform{" "}
-                <span className="italic font-medium text-amber-600 dark:text-amber-600">
-                  innovative ideas into digital reality
+                I love creating web applications with{" "}
+                <span className="text-amber-600 dark:text-amber-600 font-medium">
+                  MongoDB
                 </span>
-                . I achieve this through meticulous attention to detail, writing{" "}
-                <span className="font-semibold text-amber-600 dark:text-amber-600">
-                  clean, efficient, and maintainable code
+                ,{" "}
+                <span className="text-amber-600 dark:text-amber-600 font-medium">
+                  Express
                 </span>
-                . I believe great software is not only functional but also
-                elegant and user-friendly.
+                ,{" "}
+                <span className="text-amber-600 dark:text-amber-600 font-medium">
+                  React
+                </span>
+                ,{" "}
+                <span className="text-amber-600 dark:text-amber-600 font-medium">
+                  Node.js
+                </span>{" "}
+                and{" "}
+                <span className="text-amber-600 dark:text-amber-600 font-medium">
+                  TypeScript
+                </span>
+                , focusing on clean code and practical solutions. I enjoy
+                solving problems with code, contributing to open-source, and
+                continuously learning to improve my craft.
               </p>
               <p>
-                I&apos;m constantly exploring new technologies and refining my
-                skills to build cutting-edge web solutions.
+                My long-term goal is to grow as a{" "}
+                <span className="text-amber-600 dark:text-amber-600">
+                  full-stack developer
+                </span>{" "}
+                and contribute to impactful projects that make technology more
+                accessible and meaningful.
               </p>
             </div>
           </div>

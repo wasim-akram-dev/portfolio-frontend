@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 const AboutSectionInspired: React.FC = () => {
   return (
-    <div className="py-20 md:py-28 ">
+    <div className="py-20 md:py-28 lg:py-40 ">
       <AboutMeSection />
       <SkillsSection />
     </div>
