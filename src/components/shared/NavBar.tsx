@@ -82,13 +82,13 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
-              <div>
+              <div className="text-slate-700 dark:text-slate-200 text-xl">
                 {user ? (
                   <div className="flex gap-3 items-center">
                     <Link href="/dashboard">Dashboard</Link>
                     <button
                       onClick={logout}
-                      className="bg-red-600 px-3 py-1 rounded"
+                      className="bg-red-500 px-3 py-1 rounded cursor-pointer"
                     >
                       Logout
                     </button>
@@ -244,6 +244,21 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+            <div className="px-4 py-3 text-slate-700 dark:text-slate-200">
+              {user ? (
+                <div className="flex flex-col gap-3">
+                  <Link href="/dashboard">Dashboard</Link>
+                  <button
+                    onClick={logout}
+                    className="bg-red-500 text-white px-3 py-1 rounded cursor-pointer"
+                  >
+                    Logout
+                  </button>
+                </div>
+              ) : (
+                <Link href="/login">Login</Link>
+              )}
+            </div>
           </nav>
         </div>
       )}
