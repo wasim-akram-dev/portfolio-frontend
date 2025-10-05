@@ -1,7 +1,11 @@
 import BlogDetailsCard from "@/components/BlogDetailsCard";
 
 export const getBlogBySlug = async (slug: string) => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/blogs/${slug}`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/blogs/${slug}`, {
+    next: {
+      revalidate: 10,
+    },
+  });
   return await res.json();
 };
 

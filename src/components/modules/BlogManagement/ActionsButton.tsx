@@ -56,9 +56,9 @@ const ActionsButton = ({ id, blog }: { id: number; blog: IBlog }) => {
 
     const result = await res.json();
     console.log(result);
-    // if (result?.updatedBlog?.id) {
-    //   toast.success("Blog Updated Successfully");
-    // }
+    if (result?.updatedBlog?.id) {
+      toast.success("Blog Updated Successfully");
+    }
   };
 
   return (

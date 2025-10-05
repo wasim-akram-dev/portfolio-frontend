@@ -2,7 +2,12 @@ import ProjectDetailsCard from "@/components/ProjectDetailsCard";
 
 export const getProjectBySlug = async (slug: string) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_API}/projects/${slug}`
+    `${process.env.NEXT_PUBLIC_BASE_API}/projects/${slug}`,
+    {
+      next: {
+        revalidate: 10,
+      },
+    }
   );
   return await res.json();
 };

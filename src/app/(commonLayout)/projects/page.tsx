@@ -19,7 +19,9 @@ export const metadata: Metadata = {
 
 export default async function Projects() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/projects`, {
-    cache: "no-store",
+    next: {
+      revalidate: 10,
+    },
   });
   const data = await res.json();
   const projects = await data.projects;

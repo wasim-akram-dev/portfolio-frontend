@@ -14,11 +14,9 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
-// import { BlogFormValues } from "@/lib/validations/blog";
 import { ProjectFormValues } from "@/lib/validations/project";
 import { IProject } from "@/types";
 import { ProjectFormModal } from "./ProjectFormModal";
-// import { BlogFormModal } from "./BlogFormModal";
 
 const ProjectActionsButton = ({
   id,
@@ -63,9 +61,9 @@ const ProjectActionsButton = ({
 
     const result = await res.json();
     console.log(result);
-    // if (result?.updatedProject?.id) {
-    //   toast.success("Project Updated Successfully");
-    // }
+    if (result?.updatedProject?.id) {
+      toast.success("Project Updated Successfully");
+    }
   };
 
   return (
