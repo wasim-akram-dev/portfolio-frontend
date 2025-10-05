@@ -1,36 +1,144 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌐 Wasim Akram's Portfolio Website (Frontend)
 
-## Getting Started
+A modern and responsive personal portfolio website built with **Next.js** and **TypeScript**, featuring blog management, project showcase, and an admin dashboard for content management.
 
-First, run the development server:
+---
+
+## 🚀 Live Links
+
+- **Frontend:** 🔹[https://wasim-akram.vercel.app](#)
+- **Backend API:** 🔹[https://wasim-akram-server.vercel.app](#)
+- **Demo Video:** 🔹[https://drive.google.com/drive/folders/1HDAd5Rd0P7DgYJe-AR8wWBYvnL0dSRHi?usp=sharing](#)
+
+---
+
+## 🧾 Project Overview
+
+This project is a **personal portfolio website** designed to showcase my skills, projects, and blogs.
+It includes both **public sections** (About Me, Projects, Blogs) and **private dashboard access** for the owner to manage content securely.
+
+---
+
+## ✨ Features
+
+### 🧍‍♂️ Public Pages
+
+- 🏠 **Home Page:** Overview of personal info, projects, and blogs.
+- 🧑‍💼 **About Me:** Displays static info (name, bio, contact, skills).
+- 🧱 **Projects Showcase:** Displays project cards with live and GitHub links.
+- 📰 **Blogs Page:** Fetches blogs dynamically using ISR (Incremental Static Regeneration).
+- 📄 **Single Blog Page:** Generated dynamically via ISR with `getStaticPaths`.
+
+### 🔒 Private Dashboard (Admin Only)
+
+- 🧾 Secure **JWT-based Authentication**
+- ✍️ **Blog Management:** Create, update, delete blogs.
+- 🗂️ **Project Management:** Add, edit, and remove projects.
+- 📊 **Dashboard Overview:** Quick summary of total blogs, projects, and recent updates.
+
+---
+
+## 🧰 Technology Stack
+
+| Category       | Tools / Libraries     |
+| -------------- | --------------------- |
+| Framework      | Next.js (App Router)  |
+| Language       | TypeScript            |
+| Styling        | Tailwind CSS          |
+| Notifications  | react-hot-toast       |
+| Forms          | React Hook Form + Zod |
+| Fetching       | Fetch API + ISR       |
+| Authentication | JWT (via Backend API) |
+| Deployment     | Vercel                |
+
+---
+
+## ⚙️ Setup Instructions
+
+### 🔧 Prerequisites
+
+- Node.js ≥ 18
+- npm or yarn
+- Backend API running and accessible
+
+### 🏗️ Installation
 
 ```bash
+git clone https://github.com/wasim-akram-dev/portfolio-frontend.git
+cd portfolio-frontend
+npm install
+cp .env.example .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🌍 Environment Variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### .env.local
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+NEXT_PUBLIC_BASE_API=https://wasim-akram-server.vercel.app/api/v1
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🧩 Folder Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+src/
+┣ components/
+┣ app/
+┃ ┣ (public)/ # Public pages (about, blogs, projects)
+┃ ┣ (dashboard)/ # Private admin dashboard
+┃ ┣ layout.tsx
+┃ ┗ page.tsx
+┣ lib/
+┣ hooks/
+┣ types/
+┗ styles/
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🧑‍💻 Admin Credentials
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Role  | Email                                           | Password            |
+| ----- | ----------------------------------------------- | ------------------- |
+| Admin | 🔹[owner@example.com](mailto:owner@example.com) | 🔹StrongPassword123 |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🎥 Demo Video
+
+## 📹 Duration: 10–15 minutes
+
+Include the following:
+
+1. Home & About section overview
+
+2. Projects showcase
+
+3. Blogs page + single blog page
+
+4. Dashboard login & CRUD demo
+
+5. Deployment & environment setup
+
+🎬 Link: https://drive.google.com/drive/folders/1HDAd5Rd0P7DgYJe-AR8wWBYvnL0dSRHi?usp=sharing
+
+---
+
+## Additional Notes
+
+- Fully responsive layout for mobile, tablet, and desktop.
+
+- Implemented ISR for performance.
+
+- Error handling for failed fetch & invalid credentials.
+
+- Accessible components (semantic HTML, aria labels).
+
+---
+
+Author: 🔹Wasim Akram
+
+License: MIT
