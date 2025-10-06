@@ -7,7 +7,7 @@ const wordsToAnimate = [
   "MERN Stack Developer",
   "Frontend Developer ",
   "Next.js Developer",
-  "Web Application Developer",
+  "Web App Developer",
   "JavaScript Developer",
   "React.js Developer",
 ];

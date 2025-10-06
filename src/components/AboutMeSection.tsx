@@ -1,4 +1,5 @@
-import profileImage from "@/assets/profile_square.png";
+import profileImage from "@/assets/profile_about.png";
+
 import Image from "next/image";
 
 function AboutMeSection() {

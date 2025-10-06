@@ -1,4 +1,4 @@
-import profileImage from "@/assets/profile_square.png";
+import profileImage from "@/assets/profile_home.png";
 import ResumeButtonModal from "@/components/ResumeButtonModal";
 import TextAnimate from "@/components/TextAnimate";
 import { Button } from "@/components/ui/button";
