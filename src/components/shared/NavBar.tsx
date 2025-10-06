@@ -63,7 +63,7 @@ export default function Navbar() {
               {/* Logo */}
               <Link
                 href="/"
-                className="text-xl font-thin text-amber-600 dark:text-white"
+                className="text-xl font-thin text-amber-600 dark:text-white hidden xl:flex"
               >
                 <span className="">{`<Wasim_Akram/>`}</span>
               </Link>
@@ -106,7 +106,7 @@ export default function Navbar() {
               <div className="flex items-center gap-5">
                 {" "}
                 {pathname !== "/" && (
-                  <div className="flex gap-4 ">
+                  <div className="flex gap-4 md:hidden lg:flex">
                     <Link
                       className="text-md group h-10 w-10 rounded-full border flex items-center justify-center border-amber-600 text-amber-600 hover:bg-amber-50 dark:hover:bg-amber-950"
                       href="https://github.com/wasim-akram-dev"
