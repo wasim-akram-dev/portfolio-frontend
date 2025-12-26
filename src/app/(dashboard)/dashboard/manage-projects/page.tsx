@@ -35,10 +35,10 @@ export default async function ManageProjectsPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project: IProject) => (
             <Card key={project.slug} className="z-10 flex flex-col h-full pt-0">
-              {project.thumbnail && (
+              {project.thumbnailUrl && (
                 <div className="relative aspect-video w-full overflow-hidden rounded-t-lg">
                   <Image
-                    src={project.thumbnail}
+                    src={project.thumbnailUrl}
                     alt={project.title}
                     fill
                     className="object-cover"

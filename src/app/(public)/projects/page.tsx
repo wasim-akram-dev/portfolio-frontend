@@ -1,72 +1,35 @@
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardTitle,
-} from "@/components/ui/card";
-import { IProject } from "@/types";
+import ProjectCard from "@/components/projects/ProjectCard";
+import { getAllProjects } from "@/lib/projects";
 import { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Projects - Wasim Akram",
+  title: "Projects – Wasim Akram",
   description:
-    "Explore my recent work, personal projects, and collaborations. A showcase of creativity and technical expertise.",
+    "A curated showcase of my full-stack, frontend, and backend projects.",
 };
 
-export default async function Projects() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/projects`, {
-    next: {
-      revalidate: 10,
-    },
-  });
-  const data = await res.json();
-  const projects = await data.projects;
+export default async function ProjectsPage() {
+  const projects = await getAllProjects();
+  // console.log("projects", projects);
 
   return (
-    <section id="projects" className="py-20 ">
-      <div className="container px-4 mx-auto">
-        <div className="md:mb-16 mb-5 text-center">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl  mb-4">
+    <section className="py-24">
+      <div className="container mx-auto px-4">
+        {/* Header */}
+        <div className="mb-16 text-center">
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
             My Projects
-          </h2>
-          <p className="max-w-2xl mx-auto text-muted-foreground">
-            A showcase of my recent works, personal projects, and
-            collaborations.
+          </h1>
+          <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
+            Selected works demonstrating my skills in design, development, and
+            problem-solving.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project: IProject) => (
-            <Card key={project.slug} className="z-10 flex flex-col h-full pt-0">
-              {project.thumbnail && (
-                <div className="relative aspect-video w-full overflow-hidden rounded-t-lg">
-                  <Image
-                    src={project.thumbnail}
-                    alt={project.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              )}
-              <CardContent className="space-y-2 pt-4 flex-1">
-                <CardTitle>{project.title}</CardTitle>
-                <CardDescription>{project.description}</CardDescription>
-              </CardContent>
-              <CardFooter className="items-end flex w-full justify-end">
-                <Button variant={"outline"} asChild>
-                  <Link
-                    href={`/projects/${project.slug}`}
-                    className="text-primary font-medium"
-                  >
-                    Read Full Project →
-                  </Link>
-                </Button>
-              </CardFooter>
-            </Card>
+        {/* Grid */}
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project) => (
+            <ProjectCard key={project.slug} project={project} />
           ))}
         </div>
       </div>

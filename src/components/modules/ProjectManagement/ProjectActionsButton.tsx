@@ -81,9 +81,9 @@ const ProjectActionsButton = ({
           slug: project.slug,
           description: project.description,
           features: project.features,
-          thumbnail: project.thumbnail,
-          liveUrl: project.liveUrl,
-          repoUrl: project.repoUrl,
+          thumbnail: project.thumbnailUrl,
+          // liveUrl: project.liveUrl,
+          // repoUrl: project.repoUrl,
         }}
       />
 

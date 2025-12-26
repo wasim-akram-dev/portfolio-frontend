@@ -13,37 +13,13 @@ export default async function ProjectDetailsCard({
   }
 
   return (
-    <main className="max-w-4xl mx-auto py-30 px-4">
+    <main className="max-w-4xl mx-auto py-30">
       <h1 className="text-5xl font-bold mb-6">{project?.title}</h1>
 
-      {/* <div className="flex items-center gap-4 mb-8">
-        <Image
-          src={
-            blog.author.picture ||
-            "https://cdn-icons-png.flaticon.com/512/9385/9385289.png"
-          }
-          alt={blog?.author?.name}
-          width={48}
-          height={48}
-          className="rounded-full"
-        />
-        <div>
-          <p className="font-semibold">
-            {blog.author.name}{" "}
-            {blog.author.isVerified && (
-              <span className="inline-block ml-1 text-blue-500">✔</span>
-            )}
-          </p>
-          <p className="text-gray-500 text-sm">
-            {new Date(blog.createdAt).toLocaleDateString()} • {blog.views} views
-          </p>
-        </div>
-      </div> */}
-
-      {project.thumbnail && (
+      {project.thumbnailUrl && (
         <div className="relative h-80 w-full overflow-hidden">
           <Image
-            src={project.thumbnail}
+            src={project.thumbnailUrl}
             alt={project.title}
             fill
             className="rounded-lg object-cover shadow-md"
@@ -55,8 +31,11 @@ export default async function ProjectDetailsCard({
         <p>{project.description}</p>
       </article>
       <p>liveUrl: {project.liveUrl}</p>
-      <p>repoUrl: {project.repoUrl}</p>
+      {/* <p>repoUrl: {project.repoUrl}</p> */}
       <p>features: {project.features}</p>
+      <p>slug: {project.slug}</p>
+      {/* <p>createdAt: {project.createdAt}</p> */}
+      {/* <p>updatedAt: {project.updatedAt}</p> */}
     </main>
   );
 }

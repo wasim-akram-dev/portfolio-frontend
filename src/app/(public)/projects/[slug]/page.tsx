@@ -1,47 +1,39 @@
-import ProjectDetailsCard from "@/components/ProjectDetailsCard";
+import ProjectDetails from "@/components/projects/ProjectDetails";
+import { getProjectBySlug } from "@/lib/projects";
+import { notFound } from "next/navigation";
 
-export const getProjectBySlug = async (slug: string) => {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_API}/projects/${slug}`,
-    {
-      next: {
-        revalidate: 10,
-      },
-    }
-  );
-  return await res.json();
-};
-
-export const generateMetadata = async ({
+export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
-}) => {
-  const { slug } = await params;
+  params: { slug: string };
+}) {
+  const project = await getProjectBySlug(params.slug);
 
-  const { project } = await getProjectBySlug(slug);
+  if (!project) return {};
 
   return {
-    title: project?.title,
-    description: project?.description,
+    title: project.title,
+    description: project.shortDescription,
   };
-};
+}
 
-const ProjectDetailsPage = async ({
+export default async function ProjectDetailsPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
-}) => {
-  const { slug } = await params;
+  params: { slug: string };
+}) {
+  const project = await getProjectBySlug(params.slug);
 
-  const { project } = await getProjectBySlug(slug);
-  // console.log("from single project page", project);
+  if (!project) notFound();
 
   return (
-    <div className="container mx-auto py-20 px-4 md:px-6">
-      <ProjectDetailsCard project={project} />
-    </div>
+    <section className="py-24">
+      <div className="container mx-auto px-4">
+        <ProjectDetails project={project} />
+      </div>
+    </section>
   );
-};
-
-export default ProjectDetailsPage;
+}
+// https://i.ibb.co.com/HpBNHTvC/locana.png
+// https://i.ibb.co.com/JL4QrLy/runner-courier.png
+// https://i.ibb.co.com/wF3MngqP/i-library.png
